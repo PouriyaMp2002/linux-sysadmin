@@ -258,7 +258,8 @@ The project also highlighted several operational concepts:
 - [Networking](02-networking.md)
 - [NFS Shared Storage](04-nfs.md)
 - [Backup & Disaster Recovery](06-backup-disaster-recovery.md)
-- [Operations, Monitoring & Centralized Logging](07-centralized-logging.md)
+- [Logging and monitoring](07-Logging-Monitoring-Alerting.md)
+
 
 ## Configuration Files
 

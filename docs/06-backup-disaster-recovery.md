@@ -498,9 +498,8 @@ Sensitive files such as SSH private keys and Restic repository passwords must ne
 - [Storage — RAID 1, LVM & ext4](03-storage-raid-lvm.md)
 - [NFS Shared Storage](04-nfs.md)
 - [Web Server & Internal Company Portal](05-web-server.md)
-- [Centralized Logging, Monitoring & Alerting](07-centralized-logging.md)
-
+- [Logging and monitoring](07-Logging-Monitoring-Alerting.md)
 ---
 
 **Previous:** [← Web Server](05-web-server.md)  
-**Next:** [Centralized Logging, Monitoring & Alerting →](07-centralized-logging.md)
+**Next:** [Logging and monitoring →](07-Logging-Monitoring-Alerting.md)

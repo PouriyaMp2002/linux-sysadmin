@@ -483,7 +483,7 @@ sudo ufw status
 - [Storage — RAID 1, LVM & ext4](03-storage-raid-lvm.md)
 - [NFS Shared Storage](04-nfs.md)
 - [Web Server](05-web-server.md)
-- [Centralized Logging](07-centralized-logging.md)
+- [Logging and monitoring](07-Logging-Monitoring-Alerting.md)
 
 ---
 

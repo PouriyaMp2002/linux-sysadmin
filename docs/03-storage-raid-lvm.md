@@ -648,7 +648,7 @@ The backup system complements this architecture by providing encrypted recovery 
 - [Networking](02-networking.md)
 - [NFS Shared Storage](04-nfs.md)
 - [Backup & Disaster Recovery](06-backup-disaster-recovery.md)
-- [Prometheus Monitoring](08-prometheus.md)
+- [Logging and monitoring](07-Logging-Monitoring-Alerting.md)
 
 ---
 
