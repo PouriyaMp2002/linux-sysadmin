@@ -524,7 +524,7 @@ This architecture combines:
 See: [Backup & Disaster Recovery](06-backup-disaster-recovery.md).
 
 
-## 17. Security Considerations
+## 16. Security Considerations
 
 - Restrict direct administration of storage devices to privileged accounts.
 - Limit NFS exports to authorized clients.
@@ -535,7 +535,7 @@ See: [Backup & Disaster Recovery](06-backup-disaster-recovery.md).
 - Verify backups and practice restoration.
 - Do not publish real sensitive file contents or credentials.
 
-## 18. Design Summary
+## 17. Design Summary
 
 The storage configuration follows this sequence:
 
@@ -559,7 +559,7 @@ The layered design demonstrates practical Linux storage administration, disk red
 
 The backup system complements this architecture by providing encrypted recovery snapshots outside the primary storage VM.
 
-## 19. Related Documentation
+## 18. Related Documentation
 
 - [Infrastructure Architecture](01-architecture.md)
 - [Networking](02-networking.md)

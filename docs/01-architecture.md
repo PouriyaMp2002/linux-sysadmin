@@ -373,7 +373,7 @@ systemctl is-active rsyslog
 
 A complete infrastructure health check should also confirm backups, RAID condition, NFS access, and monitoring targets.
 
-## 10. Related Documentation
+## 9. Related Documentation
 
 - [Networking](02-networking.md)
 - [Storage — RAID 1, LVM & ext4](03-storage-raid-lvm.md)

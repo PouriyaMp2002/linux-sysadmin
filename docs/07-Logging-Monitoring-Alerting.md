@@ -481,40 +481,6 @@ Important considerations include:
 - Both monitoring and logging are affected if the physical VirtualBox host fails.
 
 
-## Skills Demonstrated
-
-**Centralized Logging**
-- rsyslog server/client architecture
-- TCP forwarding
-- Log routing and classification
-- Queue-based forwarding
-- Multi-server troubleshooting
-
-**Infrastructure Monitoring**
-- Prometheus
-- Node Exporter
-- PromQL
-- CPU, memory, filesystem, and network monitoring
-- RAID health monitoring
-
-**Application Monitoring**
-- Blackbox Exporter
-- HTTP health checks
-- Service availability monitoring
-
-**Visualization**
-- Grafana dashboards
-- Prometheus data source integration
-- Time-series analysis
-- Infrastructure performance monitoring
-
-**Alert Management**
-- Prometheus alert rules
-- Threshold-based alerting
-- Alertmanager
-- Alert severity and grouping
-- Alert validation and testing
-
 ## Related Documentation
 
 - [Infrastructure Architecture](01-architecture.md)
@@ -532,9 +498,7 @@ Important considerations include:
 The implementation files are organized separately from this documentation.
 
 - [rsyslog configurations](../configs/rsyslog/)
-- [Prometheus configurations](../configs/prometheus/)
-- [Grafana configurations](../configs/grafana/)
-- [Alertmanager configurations](../configs/alertmanager/)
+- [Prometheus & Alert configurations](../configs/prometheus/)
 - [systemd configurations](../configs/systemd/)
 
 These directories are intended to hold sanitized copies of the actual deployed configurations.
