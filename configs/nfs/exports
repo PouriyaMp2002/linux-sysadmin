@@ -1,0 +1,6 @@
+# Company document storage
+# NFS server: storage01
+# Authorized client: web01
+# Deployed on "storage01" server --> source: /etc/exports
+
+/srv/company-data 10.0.2.11(rw,sync,root_squash,no_subtree_check)
