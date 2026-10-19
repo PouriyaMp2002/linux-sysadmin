@@ -1,0 +1,31 @@
+/etc/restic/password
+/root/.ssh/restic_backup
+/etc/company-portal/portal.env
+/etc/prometheus/alertmanager-smtp-password
+/etc/prometheus/alertmanager-telegram-token
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.key
+
+# Application data
+instance/
+uploads/
+*.db
+*.sqlite3
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
