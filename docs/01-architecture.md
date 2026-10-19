@@ -380,8 +380,7 @@ A complete infrastructure health check should also confirm backups, RAID conditi
 - [NFS Shared Storage](04-nfs.md)
 - [Web Server](05-web-server.md)
 - [Backup & Disaster Recovery](06-backup-disaster-recovery.md)
-- [Prometheus Monitoring](08-prometheus.md)
-- [Centralized Logging](07-centralized-logging.md)
+- [Logging and monitoring](07-Logging-Monitoring-Alerting.md)
 
 ---
 
