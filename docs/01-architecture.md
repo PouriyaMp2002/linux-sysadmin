@@ -12,7 +12,7 @@ Five virtual machines are assigned separate responsibilities for application hos
 
 The main architectural objective is to build an interconnected environment in which different Linux services depend on and communicate with each other, rather than operating as isolated demonstrations.
 
-![Image Descritpion](architecture.png)
+![Image Descritpion](Architecture.png)
 
 ## 2. Infrastructure Inventory
 
