@@ -196,12 +196,8 @@ Detailed implementation procedures, configuration explanations, verification com
 | NFS server, client, and permissions | [NFS Configuration](docs/04-nfs.md) |
 | Flask, Gunicorn, Nginx, and systemd | [Web Server](docs/05-web-server.md) |
 | Restic, SSH/SFTP, backup automation, and recovery | [Backup & Disaster Recovery](docs/06-backup-disaster-recovery.md) |
-| rsyslog forwarding and log management | [Centralized Logging](docs/07-centralized-logging.md) |
-| Prometheus, Node Exporter, and Blackbox Exporter | [Prometheus Monitoring](docs/08-prometheus.md) |
-| Dashboards, metrics, and PromQL | [Grafana](docs/09-grafana.md) |
-| Infrastructure alerts and Alertmanager | [Alerting](docs/10-alertmanager.md) |
-| Permissions, SSH, and security practices | [Security](docs/11-security.md) |
-| Diagnostics and common infrastructure issues | [Troubleshooting](docs/12-troubleshooting.md) |
+| rsyslog forwarding and log management | [Logging and Monitoring](docs/07-Logging-Monitoring-Alerting.md) |
+| Diagnostics and common infrastructure issues | [Troubleshooting](docs/08-Troubleshooting.md) |
 
 > Documentation links will become active as the corresponding Markdown files are added to the repository.
 
@@ -256,15 +252,6 @@ This project provided practical experience in:
 - Alert configuration and operational visibility.
 - Centralized log management.
 - Bash scripting and command-line diagnostics.
-
-
-## Project Purpose
-
-This project was developed as part of my practical learning in **Linux System Administration, Infrastructure Engineering, and DevOps**.
-
-Its primary objective is to connect theoretical Linux knowledge with real infrastructure tasks: configuring storage, managing services, controlling permissions, automating backups, monitoring systems, and troubleshooting interactions between servers.
-
-The focus is not only on making services run, but also on understanding how to operate, maintain, and recover them.
 
 ---
 
