@@ -72,7 +72,6 @@ The infrastructure consists of four virtual machines connected through a private
 | **storage01** | Debian 13 | `10.0.2.12` | RAID 1, LVM, ext4, NFS |
 | **ops01** | Ubuntu Server 24.04 | `10.0.2.13` | Prometheus, Grafana, Alertmanager, rsyslog |
 | **backup01** | Debian 13 | `10.0.2.14` | Restic encrypted backup repository |
-| **client01** | Debian 13 Minimal | `10.0.2.21` | Employee/client simulation |
 
 ## Technology Stack
 
