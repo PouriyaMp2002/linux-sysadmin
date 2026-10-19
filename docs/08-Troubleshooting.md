@@ -214,7 +214,7 @@ sudo journalctl -u company-portal -n 50 --no-pager
 A healthy Flask process does not necessarily mean NFS is available.
 
 ---
-## Log & Monitoring Troubleshooting
+## 4. Log & Monitoring Troubleshooting
 
 The combined monitoring and logging environment supports a structured incident investigation process.
 
