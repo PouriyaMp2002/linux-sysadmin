@@ -1,0 +1,63 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - /etc/prometheus/alerts.yml
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - '127.0.0.1:9093'
+
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets:
+          - '127.0.0.1:9090'
+
+  # Linux infrastructure
+  - job_name: 'Linux-servers'
+    static_configs:
+      - targets:
+          - '10.0.2.11:9100'
+        labels:
+          instance_name: 'web01'
+
+      - targets:
+          - '10.0.2.12:9100'
+        labels:
+          instance_name: 'storage01'
+
+      - targets:
+          - '10.0.2.14:9100'
+        labels:
+          instance_name: 'backup01'
+
+      - targets:
+          - '127.0.0.1:9100'
+        labels:
+          instance_name: 'ops01'
+
+  # Company portal HTTP health check
+  - job_name: 'company-portal-health'
+    metrics_path: /probe
+
+    params:
+      module: [http_2xx]
+
+    static_configs:
+      - targets:
+          - 'http://10.0.2.11/health'
+
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+
+      - source_labels: [__param_target]
+        target_label: instance
+
+      - target_label: __address__
+        replacement: '127.0.0.1:9115'

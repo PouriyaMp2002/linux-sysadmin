@@ -1,0 +1,114 @@
+groups:
+  - name: linux_infrastructure
+    rules:
+
+      # 1. Server down
+      - alert: ServerDown
+        expr: up{job="Linux-servers"} == 0
+        for: 2m
+
+        labels:
+          severity: critical
+
+        annotations:
+          summary: "Server {{ $labels.instance_name }} is down"
+          description: "Node Exporter has been unreachable for 2 minutes."
+
+      # 2. High CPU utilization
+      - alert: HighCPU
+        expr: |
+          100 * (
+            1 - avg by (instance_name) (
+              rate(node_cpu_seconds_total{
+                job="Linux-servers",
+                mode="idle"
+              }[5m])
+            )
+          ) > 85
+        for: 10m
+
+        labels:
+          severity: warning
+
+        annotations:
+          summary: "High CPU usage on {{ $labels.instance_name }}"
+          description: "CPU utilization has exceeded 85% for 10 minutes."
+
+      # 3. High RAM utilization
+      - alert: HighRAM
+        expr: |
+          100 * (
+            1 -
+            node_memory_MemAvailable_bytes{
+              job="Linux-servers"
+            }
+            /
+            node_memory_MemTotal_bytes{
+              job="Linux-servers"
+            }
+          ) > 90
+        for: 5m
+
+        labels:
+          severity: warning
+
+        annotations:
+          summary: "High RAM usage on {{ $labels.instance_name }}"
+          description: "Estimated memory usage has exceeded 90%."
+
+      # 4. Low disk space
+      - alert: LowDiskSpace
+        expr: |
+          100 * (
+            1 -
+            node_filesystem_avail_bytes{
+              job="Linux-servers",
+              fstype=~"ext4|xfs|btrfs"
+            }
+            /
+            node_filesystem_size_bytes{
+              job="Linux-servers",
+              fstype=~"ext4|xfs|btrfs"
+            }
+          ) > 85
+        for: 5m
+
+        labels:
+          severity: warning
+
+        annotations:
+          summary: "Low disk space on {{ $labels.instance_name }}"
+          description: "Filesystem {{ $labels.mountpoint }} is more than 85% full."
+
+      # 5. Company portal down
+      - alert: CompanyPortalDown
+        expr: |
+          probe_success{job="company-portal-health"} == 0
+          or
+          absent(probe_success{job="company-portal-health"})
+        for: 2m
+
+        labels:
+          severity: critical
+
+        annotations:
+          summary: "Company Portal is unavailable"
+          description: "The HTTP health probe is failing or missing."
+
+      # 6. RAID degraded
+      - alert: RAIDDegraded
+        expr: |
+          node_md_disks{
+            job="Linux-servers",
+            instance_name="storage01",
+            device="md0",
+            state="active"
+          } < 2
+        for: 1m
+
+        labels:
+          severity: critical
+
+        annotations:
+          summary: "RAID 1 degraded on storage01"
+          description: "The md0 array has fewer than two active RAID members."
