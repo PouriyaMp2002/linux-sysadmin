@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Company Internal Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <header><span class="badge">INTERNAL FILES </span>
+      <h1>Company Internal Portal</h1>
+      <p>Shared documents for this company.</p>
+    </header>
+    {% for message in get_flashed_messages() %}
+      <p class="notice success" role="status">{{ message }}</p>
+    {% endfor %}
+    {% if error %}
+      <section class="card"><h2>Request could not be completed</h2>
+        <p class="notice error" role="alert">{{ error }}</p>
+        <a href="{{ url_for('index') }}">Return to documents</a>
+      </section>
+    {% elif confirm %}
+      <section class="card"><h2>Delete document?</h2>
+        <p>This permanently removes <strong>{{ confirm }}</strong> from shared storage.</p>
+        <form method="post" action="{{ url_for('delete', name=confirm) }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button class="danger" type="submit">Confirm delete</button>
+          <a class="button secondary" href="{{ url_for('index') }}">Cancel</a>
+        </form>
+      </section>
+    {% else %}
+      <section class="card"><h2>Add a document</h2>
+        <form method="post" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <label for="file">Choose a file</label>
+          <div class="upload-row"><input id="file" name="file" type="file"
+            accept=".txt,.pdf,.csv,.md,.docx,.xlsx" required>
+            <button type="submit">Upload document</button></div>
+        </form>
+        <p class="hint">Allowed: {{ extensions }}. Request limit: {{ upload_mb }} MiB, including form overhead.
+          Names: ASCII letters, digits, spaces, dots, hyphens and underscores; start with a letter or digit.
+          Up to 120 characters. Existing files are never overwritten.</p>
+      </section>
+      <section class="card"><div class="section-title"><h2>Shared documents</h2>
+        <span class="count">{{ files|length }} file{{ '' if files|length == 1 else 's' }}</span></div>
+        {% if files %}
+        <div class="table-wrap"><table>
+          <thead><tr><th scope="col">Document</th><th scope="col">Size</th><th scope="col">Actions</th></tr></thead>
+          <tbody>{% for file in files %}<tr>
+            <td class="filename">{{ file.name }}</td><td>{{ '%.1f'|format(file.size / 1024) }} KiB</td>
+            <td class="actions"><a href="{{ url_for('download', name=file.name) }}">Download</a>
+              <a class="delete-link" href="{{ url_for('confirm_delete', name=file.name) }}">Delete…</a></td>
+          </tr>{% endfor %}</tbody>
+        </table></div>
+        {% else %}<p class="empty">No supported documents yet. Upload one to test shared storage.</p>{% endif %}
+      </section>
+    {% endif %}
+    <footer>Private lab only · No user authentication · Authentication and HTTPS required for organizational use.</footer>
+  </main>
+</body>
+</html>
