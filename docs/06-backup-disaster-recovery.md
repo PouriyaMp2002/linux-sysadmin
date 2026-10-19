@@ -499,6 +499,8 @@ Sensitive files such as SSH private keys and Restic repository passwords must ne
 - [NFS Shared Storage](04-nfs.md)
 - [Web Server & Internal Company Portal](05-web-server.md)
 - [Logging and monitoring](07-Logging-Monitoring-Alerting.md)
+- [Troubleshooting](08-Troubleshooting.md)
+
 ---
 
 **Previous:** [← Web Server](05-web-server.md)  

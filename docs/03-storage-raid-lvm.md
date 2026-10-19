@@ -523,89 +523,6 @@ This architecture combines:
 
 See: [Backup & Disaster Recovery](06-backup-disaster-recovery.md).
 
-## 16. Troubleshooting
-
-### RAID Array Degraded
-
-Inspect:
-
-```bash
-cat /proc/mdstat
-sudo mdadm --detail /dev/md0
-```
-
-A degraded RAID 1 array may show:
-
-```text
-[U_]
-```
-
-or:
-
-```text
-[_U]
-```
-
-This indicates that one expected member is unavailable.
-
-Do not immediately run disk replacement or array rebuild commands.
-
-First identify the failed member, review the array state, and ensure that recoverable backups exist.
-
-### LVM Volume Missing
-
-Check:
-
-```bash
-sudo pvs
-sudo vgs
-sudo lvs
-```
-
-Verify that `/dev/md0` is assembled and recognized as a physical volume.
-
-### Filesystem Not Mounted
-
-Check:
-
-```bash
-findmnt /srv/company-data
-sudo blkid /dev/app/docs
-```
-
-Inspect:
-
-```bash
-cat /etc/fstab
-```
-
-Confirm that the configured UUID matches the filesystem.
-
-### Permission Denied
-
-Check:
-
-```bash
-ls -ldn /srv/company-data/documents
-```
-
-Compare ownership with the application UID/GID on `web01`.
-
-Also inspect NFS export restrictions and mount state.
-
-### Disk Space Running Low
-
-Check:
-
-```bash
-df -h /srv/company-data
-sudo vgs
-sudo lvs
-```
-
-There may be unused capacity in the volume group, but extending storage requires adequate available space and a verified procedure.
-
-Avoid making filesystem changes without checking the current state and protecting important data.
 
 ## 17. Security Considerations
 
@@ -649,6 +566,7 @@ The backup system complements this architecture by providing encrypted recovery 
 - [NFS Shared Storage](04-nfs.md)
 - [Backup & Disaster Recovery](06-backup-disaster-recovery.md)
 - [Logging and monitoring](07-Logging-Monitoring-Alerting.md)
+- [Troubleshooting](08-Troubleshooting.md)
 
 ---
 

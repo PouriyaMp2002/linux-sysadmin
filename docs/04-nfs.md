@@ -369,65 +369,12 @@ The NFS mount and Flask application service should be coordinated through system
 
 This lab uses NFS on a private VirtualBox network. Production environments may require stronger authentication and network controls.
 
-## 12. Troubleshooting
-
-### Permission Denied
-
-On both hosts:
-
-```bash
-id companyportal
-ls -ldn /srv/company-data/documents
-```
-
-On `web01`, use the corresponding mounted path:
-
-```bash
-ls -ldn /mnt/company-documents/documents
-```
-
-Confirm ownership, parent-directory permissions, export rules, and mount status.
-
-### Mount Fails
-
-On `web01`:
-
-```bash
-ping -c 3 10.0.2.12
-findmnt /mnt/company-documents
-```
-
-On `storage01`:
-
-```bash
-sudo systemctl status nfs-kernel-server
-sudo exportfs -v
-sudo ss -tlnp | grep 2049
-```
-
-### Application Cannot Access Documents
-
-Check the actual mount:
-
-```bash
-findmnt /mnt/company-documents
-```
-
-Inspect the service:
-
-```bash
-sudo systemctl status company-portal
-sudo journalctl -u company-portal -n 50 --no-pager
-```
-
-A healthy Flask process does not necessarily mean NFS is available.
-
-
 ## Related Documentation
 
 - [Storage — RAID 1, LVM & ext4](03-storage-raid-lvm.md)
 - [Web Server](05-web-server.md)
 - [Backup & Disaster Recovery](06-backup-disaster-recovery.md)
+- [Troubleshooting](08-Troubleshooting.md)
 
 ---
 

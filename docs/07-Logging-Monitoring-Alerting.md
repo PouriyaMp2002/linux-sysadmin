@@ -466,43 +466,6 @@ The repository should distinguish between alert rule configuration, Alertmanager
 
 ---
 
-## Troubleshooting Workflow
-
-The combined monitoring and logging environment supports a structured incident investigation process.
-
-For example, if the company portal becomes unavailable:
-
-1. Prometheus detects a failed HTTP probe.
-2. The `CompanyPortalDown` rule may begin pending and then firing.
-3. The administrator checks server health in Grafana.
-4. Centralized Nginx and application logs provide details about the failed requests.
-5. Storage and NFS logs can help identify dependency-related failures.
-6. After recovery, the HTTP probe returns to a healthy state and the alert resolves.
-
-This approach demonstrates how metrics, logs, and alerts complement each other.
-
-## Operational Benefits
-
-### Centralized Visibility
-
-Multiple Linux machines can be observed from one operations server.
-
-### Proactive Incident Detection
-
-Alert rules surface defined abnormal conditions instead of relying exclusively on manual inspection.
-
-### Cross-Server Troubleshooting
-
-Centralized logs support investigation across different infrastructure components.
-
-### Infrastructure Performance Analysis
-
-Grafana dashboards make it easier to identify resource trends and compare system behavior.
-
-### Separation of Responsibilities
-
-Application, storage, backup, and operations workloads remain on dedicated virtual machines.
-
 ## Security & Operational Limitations
 
 The operations stack is deployed in a private lab environment.
@@ -560,6 +523,9 @@ Important considerations include:
 - [NFS Shared Storage](04-nfs.md)
 - [Web Server](05-web-server.md)
 - [Backup & Disaster Recovery](06-backup-disaster-recovery.md)
+- [Troubleshooting](08-Troubleshooting.md)
+
+
 
 ## Configuration Files
 
@@ -576,4 +542,6 @@ These directories are intended to hold sanitized copies of the actual deployed c
 ---
 
 **Previous:** [← Backup & Disaster Recovery](06-backup-disaster-recovery.md)  
+**Next:** [Troubleshooting →](08-Troubleshooting.md)
+
 **Back to:** [Main README](../README.md)

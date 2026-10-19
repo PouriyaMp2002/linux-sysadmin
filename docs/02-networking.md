@@ -401,89 +401,15 @@ Recommended practices include:
 
 **NAT Network is not a substitute for a properly designed security boundary.**
 
-## 11. Troubleshooting
 
-### No IP Address
-
-Check the interface state:
-
-```bash
-ip -br link
-```
-
-Inspect the active network management service and configuration.
-
-Confirm that the VirtualBox network adapter is connected.
-
-### Incorrect Default Gateway
-
-Check:
-
-```bash
-ip route
-```
-
-The lab gateway should be:
-
-```text
-10.0.2.1
-```
-
-### Cannot Reach Another VM
-
-Verify:
-
-1. Both VMs are running.
-2. Both use the same NAT Network.
-3. Their IP addresses and subnet masks are correct.
-4. There are no duplicate addresses.
-5. Firewall rules permit the required traffic.
-
-### IP Connectivity Works, DNS Fails
-
-Check the resolver configuration:
-
-```bash
-cat /etc/resolv.conf
-```
-
-Test hostname resolution:
-
-```bash
-getent hosts debian.org
-```
-
-Then inspect the DNS settings managed by the system's network manager.
-
-### Service Reachability Fails
-
-Check whether the service is running:
-
-```bash
-sudo systemctl status SERVICE_NAME
-```
-
-Inspect listening sockets:
-
-```bash
-sudo ss -tlnp
-```
-
-Check firewall status:
-
-```bash
-sudo ufw status
-```
-
-`ufw` is relevant only where it is installed and used; Debian installations may use other firewall management tools.
-
-## 12. Related Documentation
+## 11. Related Documentation
 
 - [Architecture](01-architecture.md)
 - [Storage — RAID 1, LVM & ext4](03-storage-raid-lvm.md)
 - [NFS Shared Storage](04-nfs.md)
 - [Web Server](05-web-server.md)
 - [Logging and monitoring](07-Logging-Monitoring-Alerting.md)
+- [Troubleshooting](08-Troubleshooting.md)
 
 ---
 

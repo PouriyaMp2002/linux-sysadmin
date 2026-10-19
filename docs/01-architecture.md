@@ -381,6 +381,7 @@ A complete infrastructure health check should also confirm backups, RAID conditi
 - [Web Server](05-web-server.md)
 - [Backup & Disaster Recovery](06-backup-disaster-recovery.md)
 - [Logging and monitoring](07-Logging-Monitoring-Alerting.md)
+- [Troubleshooting](08-Troubleshooting.md)
 
 ---
 

@@ -259,6 +259,7 @@ The project also highlighted several operational concepts:
 - [NFS Shared Storage](04-nfs.md)
 - [Backup & Disaster Recovery](06-backup-disaster-recovery.md)
 - [Logging and monitoring](07-Logging-Monitoring-Alerting.md)
+- [Troubleshooting](08-Troubleshooting.md)
 
 
 ## Configuration Files
