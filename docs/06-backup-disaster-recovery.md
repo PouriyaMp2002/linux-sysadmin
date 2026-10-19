@@ -446,35 +446,6 @@ Actual recovery duration must be measured through testing.
 
 **Recovery must be tested.** Successfully creating snapshots does not guarantee that applications or filesystems can be restored within an acceptable time.
 
-## Skills Demonstrated
-
-**Linux System Administration**
-- systemd services and timers
-- Bash automation
-- Filesystem mount management
-- Linux users and permissions
-- Service logging and diagnostics
-
-**Backup Engineering**
-- Restic
-- Incremental backup snapshots
-- Encrypted repositories
-- Snapshot retention
-- Repository maintenance
-
-**Networking & Security**
-- SSH/SFTP
-- Public-key authentication
-- Dedicated backup accounts
-- Secure credential handling
-
-**Disaster Recovery**
-- Backup verification
-- Recovery planning
-- Snapshot-based restoration
-- Failure scenario analysis
-- Recovery limitations and risk assessment
-
 ## Configuration & Automation Files
 
 The actual implementation is maintained separately from this documentation.
