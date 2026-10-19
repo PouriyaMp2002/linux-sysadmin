@@ -1,0 +1,13 @@
+# Deployed on storage01 --> Source: /etc/systemd/system/company-backup.service
+
+[Unit]
+Description=Encrypted Restic Backup of Company Documents
+Wants=network-online.target
+After=network-online.target
+RequiresMountsFor=/srv/company-data
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/local/sbin/company-backup.sh
+TimeoutStartSec=30min

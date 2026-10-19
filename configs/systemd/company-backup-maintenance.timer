@@ -1,0 +1,12 @@
+# Deployed on storage01 --> Source: /etc/systemd/system/company-backup-maintenance.timer
+
+[Unit]
+Description=Weekly Restic Backup Maintenance
+
+[Timer]
+OnCalendar=Sun *-*-* 04:00:00
+Persistent=true
+Unit=company-backup-maintenance.service
+
+[Install]
+WantedBy=timers.target

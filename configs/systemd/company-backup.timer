@@ -1,0 +1,13 @@
+#Deployed on storage01 --> Source: /etc/systemd/system/company-backup.timer
+
+[Unit]
+Description=Daily Company Document Backup
+
+[Timer]
+OnCalendar=*-*-* 02:00:00
+
+Persistent=true
+Unit=company-backup.service
+
+[Install]
+WantedBy=timers.target

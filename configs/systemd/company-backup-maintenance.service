@@ -1,0 +1,15 @@
+# Deployed on storage01 --> Source: /etc/systemd/system/company-backup-maintenance.service
+
+[Unit]
+Description=Restic Backup Retention and Repository Maintenance
+
+Wants=network-online.target
+After=network-online.target
+RequiresMountsFor=/srv/company-data
+conflict=company-backup.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/local/sbin/company-backup-maintenance.sh
+TimeoutStartSec=2h

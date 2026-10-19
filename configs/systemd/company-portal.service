@@ -1,0 +1,24 @@
+# Deployed on web01 --> Source: /etc/systemd/system/company-portal.service
+
+[Unit]
+Description=Company Portal Flask Application
+After=network-online.target remote-fs.target
+Wants=network-online.target
+RequiresMountsFor=/mnt/company-documents
+
+[Service]
+Type=simple
+User=companyportal
+Group=companyportal
+
+WorkingDirectory=/opt/company-portal
+EnvironmentFile=/etc/company-portal/portal.env
+
+ExecStart=/opt/company-portal/venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 app:app
+
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
