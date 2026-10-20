@@ -6,7 +6,7 @@ Description=Restic Backup Retention and Repository Maintenance
 Wants=network-online.target
 After=network-online.target
 RequiresMountsFor=/srv/company-data
-conflict=company-backup.service
+Conflicts=company-backup.service
 
 [Service]
 Type=oneshot
